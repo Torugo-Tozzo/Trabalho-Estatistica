@@ -1,0 +1,34 @@
+1- Este trabalho deverá ser realizado em dupla ou individualmente e deverá ser entregue, via plataforma moodle, em formato pdf!!!
+2- Data de entrega: Até as 17:00 do DIA 24-02-2023.(NÃO SERÁ ACEITO COM ATRASO!!)
+
+A estimativa de esforço é uma tarefa crítica no ciclo de vida de desenvolvimento de software. Estimativas imprecisas podem causar
+insatisfação do cliente e reduzir a qualidade do produto. Medidas de tamanho, esforço, recursos, custo, e tempo despendidos no
+desenvolvimento de software são fundamentais. Valores subestimados de esforço podem fazer com que pressões de tempo comprometam
+todo o desenvolvimento funcional e até mesmo o teste de software. Por outro lado, valores superestimados podem resultar em projetos não
+competitivos. Modelos de regressão, são pontados como alternativas para obter estimativas, sendo comum ser considerada a variável
+dependente a QET-ht (quantidade de esforço total, em número de homens /hora, despendido no desenvolvimento do projeto). E, dentre
+muitas as variáveis independentes, pode-se destacar:
+
+
+
+  *----------------------------------------------------------------*
+  |  Length           Duração do projeto (em meses)                |     
+  |  Transactions     Total de transações lógicas no sistema       |                 
+  |  TURN             Tempo de execução da máquina (horas)         |             
+  |  Entities         Número de entidades de modelo do sistema.    |                 
+  |  DATA             Tamanho da base de dados                     | 
+  *----------------------------------------------------------------*
+
+Pesquisar sobre uso de regressão para obter estimativas de esforço no ciclo de vida de desenvolvimento de software.
+
+Faça um relatório com introdução (máximo duas páginas), destacando a importância desse tipo de estudo, apresentando os resultados
+usando tabelas e/ou gráficos. Para a elaboração utilizar, sempre que preciso α = 1%, apresentar três CASAS DECIMAIS para as estimativas.
+
+
+
+a) Para cada variável, calcular a média, mediana e coeficiente de variação e interpretar (apresentar em uma tabela)
+b) Faça um diagrama de dispersão para os dados (Y x X1 e Y x X2).
+c) Encontre o coeficiente de correlação. Efetue o Teste de hipótese e tire as conclusões necessárias.
+d) Encontre a equação linear, realize os testes e faça a interpretação prática. Apresente o gráfico com modelos ajustados.
+e) Encontre o coeficiente de determinação e interprete.
+f) Qual seria quantidade de esforço total se fosse o quartil3 (Q3) de X1 e X2? 
