@@ -32,3 +32,10 @@ c) Encontre o coeficiente de correlação. Efetue o Teste de hipótese e tire as
 d) Encontre a equação linear, realize os testes e faça a interpretação prática. Apresente o gráfico com modelos ajustados.
 e) Encontre o coeficiente de determinação e interprete.
 f) Qual seria quantidade de esforço total se fosse o quartil3 (Q3) de X1 e X2? 
+
+
+A estimativa de esforço do ciclo de vida de desenvolvimento de software é um aspecto crítico para o sucesso de um projeto de software. É importante para garantir que o projeto seja concluído dentro do prazo, orçamento e recursos alocados. A utilização de modelos de regressão é uma abordagem eficiente para estimar o esforço necessário para desenvolver uma aplicação.
+
+As variáveis utilizadas para estimar o esforço incluem Length, Transactions, TURN, Entities e DATA. Length representa a duração do projeto, que pode ser estimada com base no tamanho do projeto, na complexidade e no histórico de projetos semelhantes. Transactions representa o total de transações lógicas no sistema, que é uma medida do número de funções que o sistema deve realizar. TURN representa o tempo de execução da máquina, que pode ser utilizado para estimar o tempo necessário para executar determinadas tarefas. Entities representa o número de entidades de modelo, que são os objetos ou elementos que compõem o sistema. Por fim, DATA representa o tamanho da base de dados, que pode ser utilizado para estimar o espaço de armazenamento necessário para armazenar as informações.
+
+A utilização dessas variáveis em modelos de regressão permite uma estimativa mais precisa do esforço necessário para desenvolver uma aplicação. Ao considerar os dados históricos de projetos semelhantes e a combinação de variáveis relevantes, é possível obter uma previsão mais precisa do esforço necessário e tomar decisões informadas sobre o gerenciamento de projetos de software.
