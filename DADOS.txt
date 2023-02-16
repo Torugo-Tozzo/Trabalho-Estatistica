@@ -171,3 +171,17 @@ X2 <- c(94.2, 84.0, 98.6, 98.2, 82.5, 105.5, 90.2, 98.9, 99.0, 80.0, 86.1, 91.9,
 cor(Y2, X2)^2
 
 O resultado é 0.0125, indicando que apenas 1,25% da variância de Y2 é explicada por X2.
+
+f) Qual seria quantidade de esforço total se fosse o quartil3 (Q3) de X1 e X2?
+
+Q3_X1 <- quantile(X1, probs = 0.75)
+Q3_X1
+
+Q3_Y_X1 <- coef(model_X1)["(Intercept)"] + coef(model_X1)["X1"] * Q3_X1
+Q3_Y_X1
+
+Q3_X2 <- quantile(X2, probs = 0.75)
+Q3_X2
+
+Q3_Y2_X2 <- coef(model_X2)["(Intercept)"] + coef(model_X2)["X2"] * Q3_X2
+Q3_Y2_X2
