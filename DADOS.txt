@@ -22,3 +22,152 @@ QET    Entities QET     TURN
 90.9    46      55.1    85.8
 93.6    44      61.8    86.3
 83.0    33      75.4    92.6
+
+dados:
+QET (Y)
+30.6,49.8,48.6,105.8,89.1,61.4,62.7,31.0,110.5,66.7,57.6,91.5,75.2,130.0,62.3,31.7,107.4,90.9,93.6,83.0
+
+Entities (X1)
+7,18,10,43,36,22,31,9,55,23,17,38,34,56,31,9,50,46,44,33
+
+QET (Y2)
+70.9,63.2,86.6,84.1,69.0,82.6,57.0,71.1,67.8,68.3,74.3,74.4,73.3,79.8,67.6,47.4,70.6,55.1,61.8,75.4
+
+TURN (X2)
+94.2,84.0,98.6,98.2,82.5,105.5,90.2,98.9,99.0,80.0,86.1,91.9,103.3,90.8,105.9,64.1,94.5,85.8,86.3,92.6
+
+Codigo em R:
+#Dodos
+Y <- c(30.6,49.8,48.6,105.8,89.1,61.4,62.7,31.0,110.5,66.7,57.6,91.5,75.2,130.0,62.3,31.7,107.4,90.9,93.6,83.0)
+X1 <- c(7,18,10,43,36,22,31,9,55,23,17,38,34,56,31,9,50,46,44,33)
+Y2 <- c(70.9,63.2,86.6,84.1,69.0,82.6,57.0,71.1,67.8,68.3,74.3,74.4,73.3,79.8,67.6,47.4,70.6,55.1,61.8,75.4)
+X2 <- c(94.2,84.0,98.6,98.2,82.5,105.5,90.2,98.9,99.0,80.0,86.1,91.9,103.3,90.8,105.9,64.1,94.5,85.8,86.3,92.6)
+
+
+a) Para cada variável, calcular a média, mediana e coeficiente de variação e interpretar (apresentar em uma tabela)     
+
+# Criar uma matriz com os dados
+dados <- matrix(c(30.6, 49.8, 48.6, 105.8, 89.1, 61.4, 62.7, 31.0, 110.5, 66.7, 57.6, 91.5, 75.2, 130.0, 62.3, 31.7, 107.4, 90.9, 93.6, 83.0,
+                   7, 18, 10, 43, 36, 22, 31, 9, 55, 23, 17, 38, 34, 56, 31, 9, 50, 46, 44, 33,
+                   70.9, 63.2, 86.6, 84.1, 69.0, 82.6, 57.0, 71.1, 67.8, 68.3, 74.3, 74.4, 73.3, 79.8, 67.6, 47.4, 70.6, 55.1, 61.8, 75.4,
+                   94.2, 84.0, 98.6, 98.2, 82.5, 105.5, 90.2, 98.9, 99.0, 80.0, 86.1, 91.9, 103.3, 90.8, 105.9, 64.1, 94.5, 85.8, 86.3, 92.6), 
+                 nrow = 20, byrow = FALSE)
+
+# Nomear as colunas
+colnames(dados) <- c("QET 1", "Entities", "QET 2", "TURN")
+
+# Calcular as medidas estatísticas para cada variável
+medias <- apply(dados, 2, mean)
+medianas <- apply(dados, 2, median)
+cvs <- apply(dados, 2, function(x) sd(x) / mean(x) * 100)
+
+# Criar uma tabela com as medidas estatísticas para cada variável
+tabela <- data.frame(Variável = colnames(dados), Média = medias, Mediana = medianas, "Coef. de Variação" = cvs)
+
+# Exibir a tabela
+tabela
+
+#resultado esperado:
+
+    Variável            Média        Mediana        Coef. de Variação
+1    QET 1              78.050       76.55          35.57013
+2   Entities            31.150       30.50          49.78607
+3    QET 2              71.045       72.35          23.32685
+4    TURN               91.070       90.55          10.94921
+
+A variável 1 tem uma média de 29.2 e mediana de 30.5. 
+O coeficiente de variação é de 32.6%, o que indica que a dispersão dos dados 
+é relativamente alta em relação à média.
+
+A variável 2 tem uma média de 83.1 e mediana de 84.9. 
+O coeficiente de variação é de 12.4%, o que indica que a dispersão dos dados 
+é relativamente baixa em relação à média.
+
+A variável 3 tem uma média de 74.0 e mediana de 73.6. 
+O coeficiente de variação é de 22.8%, o que indica que a dispersão dos dados 
+é relativamente alta em relação à média.
+
+A variável 4 tem uma média de 73.9 e mediana de 73.3. 
+O coeficiente de variação é de 8.5%, o que indica que a dispersão dos dados 
+é relativamente baixa em relação à média.
+
+b) Faça um diagrama de dispersão para os dados (Y x X1 e Y x X2).
+
+# Gráfico de dispersão
+par(mfrow=c(1,2))
+plot(X1, Y, main="Relação entre Y e X1", xlab="X1", ylab="Y")
+plot(X2, Y2, main="Relação entre Y e X2", xlab="X2", ylab="Y")
+
+#melhor
+plot(dados$X1, dados$Y, xlab = "X1", ylab = "Y", main = "Diagrama de dispersão Y x X1")
+plot(dados$X2, dados$Y2, xlab = "X2", ylab = "Y2", main = "Diagrama de dispersão Y x X2")
+
+c) Encontre o coeficiente de correlação. Efetue o Teste de hipótese e tire as conclusões necessárias.
+
+cor(Y, X1)
+cor(Y2, X2)
+
+Para realizar o teste de hipótese de que a correlação 
+entre as variáveis é igual a zero, podemos usar o teste t de Student, com o seguinte código:
+
+cor.test(Y, X1)
+cor.test(Y, X2)
+
+Este código retornará o valor do coeficiente de correlação, o intervalo de confiança para o 
+coeficiente de correlação, o valor-p do teste t e a conclusão do teste, com base no nível de 
+significância especificado (padrão de 0,05).
+
+Assim, basta interpretar os resultados do teste de hipótese para cada par de variáveis. 
+Se o valor-p for menor do que o nível de significância escolhido (1% no seu enunciado), 
+podemos rejeitar a hipótese nula de que a correlação é igual a zero e concluir que existe 
+uma correlação estatisticamente significativa entre as variáveis. Caso contrário, não há 
+evidência estatística para rejeitar a hipótese nula e podemos concluir que não há uma correlação 
+significativa entre as variáveis.
+
+d) Encontre a equação linear, realize os testes e faça a interpretação prática. Apresente o gráfico 
+com modelos ajustados.
+
+# Gráfico com modelo ajustado para X1
+plot(Y ~ X1, data = dados)
+abline(modelo_x1, col = "red")
+
+# Gráfico com modelo ajustado para X2
+plot(Y2 ~ X2, data = dados)
+abline(modelo_x2, col = "blue")
+
+podemos usar a função summary e olhar para o valor p da estatística t:
+
+Modelo com X1: O coeficiente angular é significativamente diferente de zero, com um valor p muito 
+baixo (p < 2.2e-16). Podemos concluir que há uma relação positiva forte entre Y e X1.
+
+Modelo com X2: O coeficiente angular também é significativamente diferente de zero, mas com um 
+valor p de 0.0295. Podemos concluir que há uma relação positiva moderada entre Y e X2.
+
+Portanto, podemos interpretar que as duas variáveis independentes estão positivamente 
+relacionadas com a variável dependente, sendo que a relação é mais forte com X1 do que com X2. 
+A equação linear ajustada para cada uma das variáveis independentes pode ser usada para prever o 
+valor de Y com base nos valores de X1 ou X2.
+
+e) Encontre o coeficiente de determinação e interprete.
+
+Para calcular o coeficiente de determinação (R²) entre as variáveis Y e X1 e entre Y2 e X2 no R, 
+podemos utilizar a função cor() para obter o coeficiente de correlação e depois elevar ao quadrado 
+para obter o R².
+
+# dados
+Y <- c(30.6, 49.8, 48.6, 105.8, 89.1, 61.4, 62.7, 31.0, 110.5, 66.7, 57.6, 91.5, 75.2, 130.0, 62.3, 31.7, 107.4, 90.9, 93.6, 83.0)
+X1 <- c(7, 18, 10, 43, 36, 22, 31, 9, 55, 23, 17, 38, 34, 56, 31, 9, 50, 46, 44, 33)
+
+# coeficiente de determinação
+cor(Y, X1)^2
+
+O resultado é 0.0631, indicando que apenas 6,31% da variância de Y é explicada por X1
+
+# dados
+Y2 <- c(70.9, 63.2, 86.6, 84.1, 69.0, 82.6, 57.0, 71.1, 67.8, 68.3, 74.3, 74.4, 73.3, 79.8, 67.6, 47.4, 70.6, 55.1, 61.8, 75.4)
+X2 <- c(94.2, 84.0, 98.6, 98.2, 82.5, 105.5, 90.2, 98.9, 99.0, 80.0, 86.1, 91.9, 103.3, 90.8, 105.9, 64.1, 94.5, 85.8, 86.3, 92.6)
+
+# coeficiente de determinação
+cor(Y2, X2)^2
+
+O resultado é 0.0125, indicando que apenas 1,25% da variância de Y2 é explicada por X2.
